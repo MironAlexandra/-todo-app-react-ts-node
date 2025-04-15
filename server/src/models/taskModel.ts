@@ -13,12 +13,14 @@ export const getAllTasks = async (): Promise<Task[]> => {
     return res.rows;
 };
 
-export const createTask = async (title: string, description: string): Promise<Task> => {
-    const res = await pool.query(
-        'INSERT INTO tasks (title, description) VALUES ($1, $2) RETURNING *',
-        [title, description]
+export const createTask = async (title: string, description: string, completed: boolean) => {
+    const result = await pool.query(
+        `INSERT INTO tasks (title, description, completed, created_at)
+         VALUES ($1, $2, $3, NOW())
+         RETURNING *`,
+        [title, description, completed]
     );
-    return res.rows[0];
+    return result.rows[0];
 };
 
 export const updateTask = async (id: number, updates: Partial<Task>): Promise<Task> => {
