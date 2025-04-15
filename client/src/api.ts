@@ -21,3 +21,19 @@ export async function createTask(task: { title: string; description?: string }) 
     });
     return res.json();
 }
+
+export async function updateTask(id: number, updates: Partial<Task>) {
+    const res = await fetch(`${API_BASE}/tasks/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updates),
+    });
+    return res.json();
+}
+
+export async function deleteTask(id: number) {
+    await fetch(`${API_BASE}/tasks/${id}`, {
+        method: 'DELETE',
+    });
+}
+

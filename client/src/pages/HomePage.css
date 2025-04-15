@@ -1,0 +1,94 @@
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    height: 100vh;
+    background: linear-gradient(to right, #3b5be4, #b167ff);
+    color: white;
+}
+
+.tasks-section {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.tasks-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.add-task-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 2px solid #6ee7ff;
+    color: #6ee7ff;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 1rem;
+}
+
+.task-item span {
+    flex-grow: 1;
+    font-size: 1.2rem;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #6ee7ff;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.info-section {
+    flex: 1;
+}
+
+.progress-bar-container h2,
+.calendar-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    background: #fff;
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: #6ee7ff;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.percentage {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.calendar-section img {
+    margin-top: 1rem;
+    max-width: 100%;
+}
