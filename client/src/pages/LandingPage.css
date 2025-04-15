@@ -1,0 +1,21 @@
+.features-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    flex: 1 1 30%;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    min-width: 250px;
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    color: #0ed2f7;
+}
