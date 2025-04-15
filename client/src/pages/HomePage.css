@@ -36,16 +36,29 @@
 .task-item {
     display: flex;
     align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
     margin-bottom: 1rem;
+    color: black;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.task-item span {
+    flex-grow: 1;
+    margin-left: 0.5rem;
 }
 
 .task-item input[type="checkbox"] {
     margin-right: 1rem;
 }
 
-.task-item span {
-    flex-grow: 1;
-    font-size: 1.2rem;
+.task-item input[type="text"] {
+    font-size: 1rem;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .actions button {
@@ -61,31 +74,29 @@
     flex: 1;
 }
 
-.progress-bar-container h2,
-.calendar-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.progress-container {
+    width: 100%;
+    margin: 1rem 0;
 }
 
 .progress-bar {
-    background: #fff;
-    border-radius: 10px;
-    height: 20px;
-    width: 100%;
-    position: relative;
+    background-color: #eee;
+    border-radius: 20px;
     overflow: hidden;
+    height: 16px;
+    width: 100%;
 }
 
 .progress-fill {
-    background: #6ee7ff;
     height: 100%;
-    border-radius: 10px;
+    background: linear-gradient(to right, #5ee7df, #b490ca);
+    transition: width 0.3s ease-in-out;
+    border-radius: 20px;
 }
 
-.percentage {
-    display: block;
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
+.calendar-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .calendar-section img {

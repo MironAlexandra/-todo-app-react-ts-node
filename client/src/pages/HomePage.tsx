@@ -17,6 +17,37 @@ const HomePage = () => {
         setTasks([...tasks, newTask]);
     };
 
+    const deleteTask = (id: number) => {
+        const updatedTasks = tasks.filter((task) => task.id !== id);
+        setTasks(updatedTasks);
+    };
+
+    const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
+    const [editedTitle, setEditedTitle] = useState<string>('');
+    const startEditing = (taskId: number, currentTitle: string) => {
+        setEditingTaskId(taskId);
+        setEditedTitle(currentTitle);
+    };
+
+    const saveEditedTitle = () => {
+        if (editingTaskId === null) return;
+
+        const updatedTasks = tasks.map((task) =>
+            task.id === editingTaskId ? { ...task, title: editedTitle } : task
+        );
+
+        setTasks(updatedTasks);
+        setEditingTaskId(null);
+        setEditedTitle('');
+    };
+
+    const calculateProgress = () => {
+        if (tasks.length === 0) return 0;
+        const completed = tasks.filter((task) => task.completed).length;
+        return Math.round((completed / tasks.length) * 100);
+    };
+
+
     return (
         <div className="home-container">
             <div className="tasks-section">
@@ -29,10 +60,22 @@ const HomePage = () => {
                     {tasks.map((task) => (
                         <li key={task.id} className="task-item">
                             <input type="checkbox" defaultChecked={task.completed} />
-                            <span>{task.title}</span>
+                            {editingTaskId === task.id ? (
+                                <input
+                                    value={editedTitle}
+                                    onChange={(e) => setEditedTitle(e.target.value)}
+                                    onBlur={saveEditedTitle}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') saveEditedTitle();
+                                    }}
+                                    autoFocus
+                                />
+                            ) : (
+                                <span>{task.title}</span>
+                            )}
                             <div className="actions">
-                                <button>✏️</button>
-                                <button>🗑️</button>
+                                <button onClick={() => startEditing(task.id, task.title)}>✏️</button>
+                                <button onClick={() => deleteTask(task.id)}>🗑️</button>
                             </div>
                         </li>
                     ))}
@@ -40,12 +83,14 @@ const HomePage = () => {
             </div>
 
             <div className="info-section">
-                <div className="progress-bar-container">
-                    <h2>Progress</h2>
+                <div className="progress-container">
                     <div className="progress-bar">
-                        <div className="progress-fill" style={{ width: "25%" }}></div>
+                        <div
+                            className="progress-fill"
+                            style={{ width: `${calculateProgress()}%` }}
+                        ></div>
                     </div>
-                    <span className="percentage">25%</span>
+                    <p>{calculateProgress()}%</p>
                 </div>
 
                 <div className="calendar-section">
