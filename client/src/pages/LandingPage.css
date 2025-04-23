@@ -1,21 +1,114 @@
+/* Base layout and background */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #3b5be4, #b167ff);
+    min-height: 100vh;
+    width: 100vw;
+    color: #283214;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Container spacing */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Top bar layout */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+}
+
+/* Login button */
+.login-btn {
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+}
+
+/* Features layout */
 .features-grid {
     display: flex;
-    gap: 1.5rem;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
 .feature-card {
-    flex: 1 1 30%;
+    flex: 1 1 280px;
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    min-width: 250px;
+    transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
 }
 
 .feature-card h3 {
     margin-top: 0;
     color: #0ed2f7;
+}
+
+/* Footer link styles */
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+footer a:hover {
+    color: #b3e5ff;
+    text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar {
+        justify-content: center;
+    }
 }

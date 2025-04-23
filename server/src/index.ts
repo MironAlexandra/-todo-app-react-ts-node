@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:5173' })); // or "*" if unsure
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(bodyParser.json());
 
 // Optional: log every request

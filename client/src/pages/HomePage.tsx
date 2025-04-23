@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./HomePage.css";
+import { useNavigate } from "react-router-dom";
 import {
     fetchTasks,
     updateTask,
@@ -10,6 +11,7 @@ import {
 
 const HomePage = () => {
     const [tasks, setTasks] = useState<Task[]>([]);
+    const navigate = useNavigate();
     const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
     const [editedTitle, setEditedTitle] = useState<string>("");
 
@@ -105,6 +107,25 @@ const HomePage = () => {
 
     return (
         <div className="home-container">
+            <div className="top-right-button">
+                <button
+                    onClick={() => navigate("/")}
+                    style={{
+                        padding: '0.5rem 1rem',
+                        backgroundColor: '#fff',
+                        color: '#3b5be4',
+                        border: '2px solid #3b5be4',
+                        borderRadius: '30px',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)'
+                    }}
+                >
+                    ← Back to Landing
+                </button>
+            </div>
+
+            {/* Tasks Section */}
             <div className="tasks-section">
                 <h2>Tasks</h2>
                 <button className="add-task-btn" onClick={addTask}>
@@ -141,6 +162,7 @@ const HomePage = () => {
                 </ul>
             </div>
 
+            {/* Info Section */}
             <div className="info-section">
                 <div className="progress-container">
                     <div className="progress-bar">
@@ -159,6 +181,7 @@ const HomePage = () => {
             </div>
         </div>
     );
+
 };
 
 export default HomePage;

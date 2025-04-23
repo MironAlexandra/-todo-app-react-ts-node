@@ -18,12 +18,12 @@ const TaskForm: React.FC<Props> = ({ onTaskCreated }) => {
             await createTask({
                 title,
                 description,
-                completed: false, // ensure required field is passed
+                completed: false,
             });
             setTitle('');
             setDescription('');
             setError(null);
-            onTaskCreated(); // notify parent to reload tasks
+            onTaskCreated();
         } catch (err) {
             console.error('Failed to create task:', err);
             setError('Something went wrong while adding the task.');

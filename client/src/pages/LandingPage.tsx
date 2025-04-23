@@ -1,14 +1,19 @@
 import React from 'react';
-import './LandingPage.css'; // optional: for additional styling
+import './LandingPage.css';
 import { useNavigate } from "react-router-dom";
 
 const LandingPage: React.FC = () => {
     const navigate = useNavigate();
+
     return (
         <div>
+            {/* Top Right Login Button */}
             <div className="navbar">
-                <button className="login-btn" onClick={() => navigate("/login")}>Login</button>
+                <button className="login-btn" onClick={() => navigate("/login")}>
+                    Login
+                </button>
             </div>
+
             <header className="hero">
                 <h1>Let’s get things done, one tick at a time!</h1>
                 <p>Welcome to your minimalist task manager</p>
