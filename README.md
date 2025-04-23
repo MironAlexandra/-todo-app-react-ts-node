@@ -1,4 +1,4 @@
-<img width="953" alt="image" src="https://github.com/user-attachments/assets/dbde28cc-5f6d-4692-aae5-7809aac2008c" /># -todo-app-react-ts-node
+# -todo-app-react-ts-node
 This is a full-stack to-do list web application built with **React (TypeScript)** on the frontend and **Node.js (TypeScript)** with **PostgreSQL** on the backend. It allows users to create, update, check off, and delete tasks, while visualizing their progress through a dynamic progress bar. 
 
 ## 🛠️ Technologies Used
