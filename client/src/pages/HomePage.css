@@ -1,0 +1,105 @@
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    height: 100vh;
+    background: linear-gradient(to right, #3b5be4, #b167ff);
+    color: white;
+}
+
+.tasks-section {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.tasks-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.add-task-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 2px solid #6ee7ff;
+    color: #6ee7ff;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: black;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.task-item span {
+    flex-grow: 1;
+    margin-left: 0.5rem;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 1rem;
+}
+
+.task-item input[type="text"] {
+    font-size: 1rem;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #6ee7ff;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.info-section {
+    flex: 1;
+}
+
+.progress-container {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    background-color: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 16px;
+    width: 100%;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #5ee7df, #b490ca);
+    transition: width 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+.calendar-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.calendar-section img {
+    margin-top: 1rem;
+    max-width: 100%;
+}
