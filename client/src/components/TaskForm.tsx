@@ -8,15 +8,26 @@ interface Props {
 const TaskForm: React.FC<Props> = ({ onTaskCreated }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!title.trim()) return;
 
-        await createTask({ title, description });
-        setTitle('');
-        setDescription('');
-        onTaskCreated(); // notify parent to reload tasks
+        try {
+            await createTask({
+                title,
+                description,
+                completed: false, // ensure required field is passed
+            });
+            setTitle('');
+            setDescription('');
+            setError(null);
+            onTaskCreated(); // notify parent to reload tasks
+        } catch (err) {
+            console.error('Failed to create task:', err);
+            setError('Something went wrong while adding the task.');
+        }
     };
 
     return (
@@ -35,6 +46,7 @@ const TaskForm: React.FC<Props> = ({ onTaskCreated }) => {
                 onChange={(e) => setDescription(e.target.value)}
             />
             <button type="submit">Add Task</button>
+            {error && <p style={{ color: 'red', marginTop: '0.5rem' }}>{error}</p>}
         </form>
     );
 };
