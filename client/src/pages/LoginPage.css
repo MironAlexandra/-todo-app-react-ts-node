@@ -1,9 +1,15 @@
 .login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     background: linear-gradient(to right, #3b5be4, #b167ff);
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .login-card {
