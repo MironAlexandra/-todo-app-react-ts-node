@@ -24,13 +24,23 @@ export const createTask = async (title: string, description: string, completed: 
 };
 
 export const updateTask = async (id: number, updates: Partial<Task>): Promise<Task> => {
-    const { title, description, completed } = updates;
-    const res = await pool.query(
-        'UPDATE tasks SET title = $1, description = $2, completed = $3 WHERE id = $4 RETURNING *',
-        [title, description, completed, id]
-    );
+    const fields = [];
+    const values = [];
+    let index = 1;
+
+    for (const key in updates) {
+        fields.push(`${key} = $${index}`);
+        values.push((updates as any)[key]);
+        index++;
+    }
+
+    values.push(id);
+    const query = `UPDATE tasks SET ${fields.join(', ')} WHERE id = $${index} RETURNING *`;
+
+    const res = await pool.query(query, values);
     return res.rows[0];
 };
+
 
 export const deleteTask = async (id: number): Promise<void> => {
     await pool.query('DELETE FROM tasks WHERE id = $1', [id]);

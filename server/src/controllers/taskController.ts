@@ -38,13 +38,17 @@ export const update: RequestHandler = async (req, res) => {
     const id = parseInt(req.params.id);
     const updates = req.body;
 
+    console.log('🔧 Update request received:', { id, updates });
+
     try {
         const updatedTask = await TaskModel.updateTask(id, updates);
         res.json(updatedTask);
     } catch (err) {
+        console.error('❌ Failed to update task:', err);
         res.status(500).json({ error: 'Failed to update task' });
     }
 };
+
 
 export const remove: RequestHandler = async (req, res) => {
     const id = parseInt(req.params.id);
